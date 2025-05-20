@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linker</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <iframe id="sdfdsf"></iframe>
-    <script>
-        document.getElementById("sdfdsf").contentDocument.write("<object data='https://thatkidfr.github.io/'></object>");
-    </script>
-  
-  
+  <iframe id="sdfdsf"></iframe>
+  <script>
+    const iframe = document.getElementById("sdfdsf");
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+    // Write full-screen <object> inside the iframe's document
+    doc.open();
+    doc.write(`
+      <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+        }
+        object {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      </style>
+      <object data="https://thatkidfr.github.io/"></object>
+    `);
+    doc.close();
+  </script>
 </body>
 </html>
