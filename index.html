@@ -23,10 +23,10 @@
   <iframe id="sdfdsf"></iframe>
   <script>
     const iframe = document.getElementById("sdfdsf");
-    const doc = iframe.contentDocument || iframe.contentWindow.document;
+    const doc = iframe.contentDocument;
 
     // Write full-screen <object> inside the iframe's document
-    doc.open();
+
     doc.write(`
       <style>
         html, body {
@@ -43,7 +43,7 @@
       </style>
       <object data="https://thatkidfr.github.io/"></object>
     `);
-    doc.close();
+
   </script>
 </body>
 </html>
